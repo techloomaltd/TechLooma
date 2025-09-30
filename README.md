@@ -73,6 +73,3 @@ Email: techloomaltd@gmail.com
 WhatsApp : +254 795 828 952
 
 
-Email: nyakundicalvin99@gmail.com
-
-WhatsApp: +254 795828952
