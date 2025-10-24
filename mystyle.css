@@ -87,7 +87,7 @@ nav ul li a:hover {
 /* hero section */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url("hero1-bg.jpg") no-repeat center center/cover;
+              url("hero8-bg.jpg") no-repeat center center/cover;
 
     color: #fff;
     height: 90vh;
@@ -887,3 +887,4 @@ body {
   }
   
   
+
