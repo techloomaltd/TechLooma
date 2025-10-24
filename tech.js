@@ -91,4 +91,48 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll(); // run once on load
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const chatBtn = document.getElementById("chat-btn");
+    const chatBox = document.getElementById("chat-box");
+    const closeChat = document.querySelector(".close-chat");
+    const sendBtn = document.getElementById("send-btn");
+    const chatInput = document.getElementById("chat-input");
+    const chatBody = document.getElementById("chat-body");
   
+    chatBtn.addEventListener("click", () => {
+      chatBox.style.display =
+        chatBox.style.display === "flex" ? "none" : "flex";
+      chatBox.style.flexDirection = "column";
+    });
+  
+    closeChat.addEventListener("click", () => {
+      chatBox.style.display = "none";
+    });
+  
+    sendBtn.addEventListener("click", sendMessage);
+    chatInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  
+    function sendMessage() {
+      const message = chatInput.value.trim();
+      if (message !== "") {
+        const msgDiv = document.createElement("div");
+        msgDiv.classList.add("message", "user");
+        msgDiv.textContent = message;
+        chatBody.appendChild(msgDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        chatInput.value = "";
+  
+        // ✅ Correct WhatsApp number (no +)
+        const phoneNumber = "254795828952";
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  
+        // ✅ Open WhatsApp
+        window.open(whatsappURL, "_blank");
+      }
+    }
+  });
+  
+
